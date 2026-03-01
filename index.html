@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Announcement</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #0b1c2d, #000814);
+    overflow: hidden;
+    color: white;
+}
+
+/* Slider */
+.slider {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slides wrapper */
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Each slide */
+.slide {
+    min-width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Content box */
+.content {
+    width: 80%;
+    max-width: 1400px;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    border: 1px solid rgba(0,255,255,0.3);
+    box-shadow: 0 0 40px rgba(0,255,255,0.3);
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+    font-size: 28px;
+    line-height: 60px;
+}
+
+.blue { color: #00c3ff; }
+.green { color: #00ff9d; }
+.red { color: #ff4d4d; }
+.gold { color: #ffd166; }
+
+/* Buttons */
+button {
+    position: absolute;
+    bottom: 40px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #00c3ff;
+    color: black;
+    z-index: 10;
+}
+
+#prev { left: 30px; }
+#next { right: 30px; }
+
+button:hover {
+    background: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slider">
+    <div class="slides" id="slides">
+
+        <div class="slide">
+            <div class="content">
+                <h1 class="gold">Quarterly Life Update - Q1 2026</h1>
+                <ul>
+                    <li>✔ Career Growth</li>
+                    <li>✔ Health Stable</li>
+                    <li>⏳ Family Planning... In Progress</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h1 class="blue">Welcome Team</h1>
+                <p style="font-size:26px;">
+                    Thank you for joining today's lunch <br>
+                    & special announcement.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h1 class="blue">Coming Soon - 2026</h1>
+                <p style="font-size:30px;">
+                    New Team Member Joining the Family 👶
+                </p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h1 class="red">Confidential Project Initiated</h1>
+                <ul>
+                    <li>Project Name: Baby [Your Last Name] v1.0</li>
+                    <li class="blue">Status: Successfully Deployed 💙</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h1 class="green">System Update Details</h1>
+                <ul>
+                    <li>Developer 1: [Your Name]</li>
+                    <li>Developer 2: [Wife's Name]</li>
+                    <li>Release Date: [Month, 2026]</li>
+                    <li>Current Version: 12 Weeks Running</li>
+                    <li class="green">Environment: Production (Mother's Womb ❤️)</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+</div>
+
+<script>
+const slidesContainer = document.getElementById("slides");
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function updateSlide() {
+    slidesContainer.style.transform = "translateX(-" + (index * 100) + "%)";
+}
+
+document.getElementById("next").addEventListener("click", function () {
+    if (index < slides.length - 1) {
+        index++;
+    } else {
+        index = 0;
+    }
+    updateSlide();
+});
+
+document.getElementById("prev").addEventListener("click", function () {
+    if (index > 0) {
+        index--;
+    } else {
+        index = slides.length - 1;
+    }
+    updateSlide();
+});
+</script>
+
+</body>
+</html>
